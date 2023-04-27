@@ -6,5 +6,6 @@ import java.util.Map;
 public interface MyTaskService {
 
     List<Map<String, String>> viewAllTask();
-    void updateComment();
+    void updateComment(String comment, int patient_id, long id);
+
 }

@@ -1,13 +1,14 @@
 package com.nestAssesment.taskManager.TaskManager.controller;
+import com.nestAssesment.taskManager.TaskManager.entity.Task;
 import com.nestAssesment.taskManager.TaskManager.repository.TaskRepository;
 import com.nestAssesment.taskManager.TaskManager.service.MyTaskService;
 import com.nestAssesment.taskManager.TaskManager.service.MyTaskServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -19,18 +20,21 @@ public class MyTaskController {
 
 
 
-@CrossOrigin(origins = "*")
-@GetMapping("/viewAllTasks")
-public List<Map<String, String>> viewTasks(){
+    @CrossOrigin(origins = "*")
+    @GetMapping("/viewAllTasks")
+    public List<Map<String, String>> viewTasks(){
 
-    return myTaskServiceImpl.viewAllTask();
-}
+        return myTaskServiceImpl.viewAllTask();
+    }
 
-@CrossOrigin(origins = "*")
-@PostMapping(path = "/updateComment", consumes = "application/json",produces = "application/json")
-public Map<String, String> updateComment(){
+    @CrossOrigin(origins = "*")
+    @PostMapping(path = "/updateComment", consumes = "application/json",produces = "application/json")
+    public HashMap<String, String> updateComment(@RequestBody Task task){
 
-    return null;
+        myTaskServiceImpl.updateComment(task.getComment(), task.getPatient_id(), task.getId());
+        HashMap<String, String> map = new HashMap<>();
+        map.put("status","success");
+        return map;
 }
 
 }

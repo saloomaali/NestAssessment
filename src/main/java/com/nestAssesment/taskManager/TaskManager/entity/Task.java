@@ -17,6 +17,8 @@ public class Task extends AbstractEntity{
     private String status;
     private String priority;
     private Date due_date;
+
+    private String comment;
     private int patient_id;
     private boolean deleted = Boolean.FALSE;
 
@@ -52,6 +54,13 @@ public class Task extends AbstractEntity{
         this.due_date = due_date;
     }
 
+    public String getComment() {
+        return comment;
+    }
+
+    public void setComment(String comment) {
+        this.comment = comment;
+    }
     public int getPatient_id() {
         return patient_id;
     }
