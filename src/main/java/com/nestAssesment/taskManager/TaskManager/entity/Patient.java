@@ -10,6 +10,8 @@ public class Patient extends AbstractEntity{
 
     private String name;
     private int age;
+
+    private String location;
     private int bed;
     private String facility;
     private int room;
@@ -34,6 +36,13 @@ public class Patient extends AbstractEntity{
         this.age = age;
     }
 
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
     public int getBed() {
         return bed;
     }
