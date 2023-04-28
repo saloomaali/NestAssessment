@@ -1,4 +1,5 @@
 package com.nestAssesment.taskManager.TaskManager.controller;
+import com.nestAssesment.taskManager.TaskManager.entity.TaskList;
 import com.nestAssesment.taskManager.TaskManager.repository.TaskRepository;
 import com.nestAssesment.taskManager.TaskManager.service.MyTaskService;
 import com.nestAssesment.taskManager.TaskManager.service.MyTaskServiceImpl;
@@ -21,7 +22,7 @@ public class MyTaskController {
 
 @CrossOrigin(origins = "*")
 @GetMapping("/viewAllTasks")
-public List<Map<String, String>> viewTasks(){
+public TaskList viewTasks(){
 
     return myTaskServiceImpl.viewAllTask();
 }
