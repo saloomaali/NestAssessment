@@ -19,10 +19,11 @@ public class MyTaskServiceImpl implements MyTaskService {
     }
 
     @Override
-    public void updateComment() {
-
+    public void updateComment(String comment, int patient_id, long id) {
 
 
     }
+
+
 
 }
