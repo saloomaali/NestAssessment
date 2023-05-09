@@ -1,11 +1,12 @@
 package com.nestAssesment.taskManager.TaskManager.service;
 
+import com.nestAssesment.taskManager.TaskManager.dto.TaskDto;
+
 import java.util.List;
-import java.util.Map;
 
 public interface MyTaskService {
 
-    List<Map<String, String>> viewAllTask();
-    void updateComment(String comment, int patient_id, long id);
+    List<TaskDto> viewAllTask();
+//    void updateComment(long id, String comment);
 
 }

@@ -1,12 +1,11 @@
 package com.nestAssesment.taskManager.TaskManager.service;
 
-import com.nestAssesment.taskManager.TaskManager.entity.TaskList;
+import com.nestAssesment.taskManager.TaskManager.dto.TaskDto;
 import com.nestAssesment.taskManager.TaskManager.repository.TaskRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Map;
 
 @Service
 public class MyTaskServiceImpl implements MyTaskService {
@@ -14,15 +13,15 @@ public class MyTaskServiceImpl implements MyTaskService {
     @Autowired
     TaskRepository taskRepository;
     @Override
-    public TaskList viewAllTask() {
+    public List<TaskDto> viewAllTask() {
+
         return taskRepository.viewAllTasks();
     }
-
-    @Override
-    public void updateComment(String comment, int patient_id, long id) {
-
-
-    }
+//    @Override
+//    public void updateComment(long id, String comment) {
+//
+//        taskRepository.update(id, comment);
+//    }
 
 
 

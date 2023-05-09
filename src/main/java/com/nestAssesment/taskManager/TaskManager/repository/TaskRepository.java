@@ -1,25 +1,24 @@
 package com.nestAssesment.taskManager.TaskManager.repository;
 
+import com.nestAssesment.taskManager.TaskManager.dto.TaskDto;
 import com.nestAssesment.taskManager.TaskManager.entity.Task;
-import com.nestAssesment.taskManager.TaskManager.entity.TaskList;
 import jakarta.transaction.Transactional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
-import java.util.Map;
 
+@Repository
 public interface TaskRepository extends JpaRepository<Task, Long> {
 
 
-        @Query(value = "SELECT t.description, t.comment, t.status, t.due_date, t.patient_id, p.name, p.location, p.facility, p.unit_name, p.room, p.bed FROM task t JOIN patient p ON t.patient_id = p.id WHERE t.deleted = 0 ", nativeQuery = true)
-        TaskList viewAllTasks();
+        @Query(value = "SELECT t.id as id, t.description as description, t.comment as comment, t.status as status, t.due_date as dueDate," +
+                " t.patient_id as patientId, p.name as name, p.location as location, p.facility as facility, p.unit_name as unitName," +
+                " p.room as room, p.bed as bed FROM Task t JOIN Patient p ON t.patient_id = p.id WHERE t.deleted = 0", nativeQuery = true)
+        List<TaskDto> viewAllTasks();
 
-        @Transactional
-        @Modifying
-        @Query(value = "UPDATE task SET comment = :comment WHERE patient_id = :patient_id AND id = :id", nativeQuery = true)
-        void update(@Param("comment") String comment, @Param("patient_id") int patient_id, @Param("id") long id);
     }
 
