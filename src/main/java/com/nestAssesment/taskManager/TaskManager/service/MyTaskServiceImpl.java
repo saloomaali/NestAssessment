@@ -17,12 +17,5 @@ public class MyTaskServiceImpl implements MyTaskService {
 
         return taskRepository.viewAllTasks();
     }
-//    @Override
-//    public void updateComment(long id, String comment) {
-//
-//        taskRepository.update(id, comment);
-//    }
-
-
 
 }
