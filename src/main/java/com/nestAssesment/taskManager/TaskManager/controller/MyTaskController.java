@@ -41,7 +41,7 @@ public class MyTaskController {
     public Message updateComment(@PathVariable("id") long id, @RequestBody CommentDto commentDto){
         Optional<Task> optionalTask= taskRepository.findById(id);
         if (optionalTask.isEmpty()) {
-            throw new ResourceNotFoundException("Comment not found with id " + id);
+            throw new ResourceNotFoundException("record not found with id " + id);
         }
         if (commentDto.getComment().length() > 100){
             message.setMsg("Comment exceeds the limit");
